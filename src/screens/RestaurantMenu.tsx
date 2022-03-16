@@ -3,12 +3,12 @@ import styled from 'styled-components';
 import {View, Text} from 'react-native';
 import colors from '../common/colors';
 import {hp, wp} from '../common/dimensions';
-import {MenuItem, MenuSection} from '../interfaces/restaurant.interface';
+import {IMenuItem, IMenuSection} from '../interfaces/restaurant.interface';
 import MenuTabNavigator from '../components/molecules/RestaurantMenu/MenuTabNavigator';
 import _ from 'lodash';
 
 interface Props {
-  sections: MenuSection[];
+  sections: IMenuSection[];
 }
 
 const FIRST_MENU_ITEM_ID = 0;
@@ -19,7 +19,7 @@ const RestaurantMenu = ({sections}: Props) => {
 
   const [selectedMenuItemId, setSelectedMenuItemId] =
     useState<number>(FIRST_MENU_ITEM_ID);
-  const [menuItems, setMenuItems] = useState<MenuItem[]>(
+  const [menuItems, setMenuItems] = useState<IMenuItem[]>(
     getUniqueMenuItemsByName(FIRST_MENU_ITEM_ID),
   );
 

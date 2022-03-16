@@ -9,6 +9,7 @@ import RestaurantReducer from '../redux/reducers/restaurant-reducer/restaurant.r
 import {useTypedSelector} from '../redux/selectors';
 import Loading from '../components/atoms/Loading';
 import {IMenuSection} from '../interfaces/restaurant.interface';
+import ErrorAlert from '../components/atoms/ErrorAlert';
 
 const Restaurant = () => {
   const dispatch = useDispatch();
@@ -21,8 +22,18 @@ const Restaurant = () => {
     dispatch(RestaurantReducer.actions.fetchRestaurant());
   }, [dispatch]);
 
+  const onRetryButtonPressed = () => {
+    dispatch(RestaurantReducer.actions.fetchRestaurant());
+  };
+
   return isRestaurantLoading ? (
     <Loading />
+  ) : restaurantError ? (
+    <ErrorAlert
+      showAlert
+      message={restaurantError}
+      onConfirmPressed={onRetryButtonPressed}
+    />
   ) : (
     <Container>
       <RestaurantNameWrapper>

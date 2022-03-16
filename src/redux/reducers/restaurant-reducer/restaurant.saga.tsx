@@ -18,7 +18,7 @@ function* fetchRestaurant(action: PayloadAction<undefined>) {
     console.log({error});
     yield put(
       RestaurantReducer.actions.fetchRestaurantError(
-        'Oops, an error occured. Try again restarting the app.',
+        'An error occured. Try again.',
       ),
     );
   }

@@ -30,7 +30,7 @@ export interface IMenuSection {
   menu_items: IMenuItem[];
 }
 
-export interface RestaurantMenu {
+export interface IRestaurantMenu {
   menu_name: string;
   menu_sections: IMenuSection[];
 }
@@ -45,10 +45,10 @@ export interface IRestaurant {
   cuisines: string[];
   address: IAddress;
   geo: IGeoLocation;
-  menus: RestaurantMenu[];
+  menus: IRestaurantMenu[];
   last_updated: Date;
 }
 
-export interface RestaurantResponse {
+export interface IRestaurantResponse {
   result: IRestaurant;
 }
