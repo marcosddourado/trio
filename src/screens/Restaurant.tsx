@@ -8,7 +8,7 @@ import {useDispatch} from 'react-redux';
 import RestaurantReducer from '../redux/reducers/restaurant-reducer/restaurant.reducer';
 import {useTypedSelector} from '../redux/selectors';
 import Loading from '../components/atoms/Loading';
-import {MenuSection} from '../interfaces/restaurant.interface';
+import {IMenuSection} from '../interfaces/restaurant.interface';
 
 const Restaurant = () => {
   const dispatch = useDispatch();
@@ -30,7 +30,7 @@ const Restaurant = () => {
       </RestaurantNameWrapper>
 
       <RestaurantMenu
-        sections={restaurant?.menus[0].menu_sections as MenuSection[]}
+        sections={restaurant?.menus[0].menu_sections as IMenuSection[]}
       />
     </Container>
   );

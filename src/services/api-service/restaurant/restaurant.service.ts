@@ -1,7 +1,7 @@
 import axios, {AxiosInstance} from 'axios';
 import {
-  Restaurant,
-  RestaurantResponse,
+  IRestaurant,
+  IRestaurantResponse,
 } from '../../../interfaces/restaurant.interface';
 import {getAxiosInstance} from '../utils';
 import Config from 'react-native-config';
@@ -17,8 +17,8 @@ export default class RestaurantService {
     this.axiosInstance = getAxiosInstance(Config.API_URL);
   }
 
-  async fetchRestaurant(id: number): Promise<Restaurant> {
-    // const response = await this.axiosInstance.get<RestaurantResponse>(
+  async fetchRestaurant(id: number): Promise<IRestaurant> {
+    // const response = await this.axiosInstance.get<IRestaurantResponse>(
     //   `/restaurant/${id}?key=${Config.API_KEY}`,
     // );
 
