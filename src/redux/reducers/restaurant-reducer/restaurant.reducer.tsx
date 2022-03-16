@@ -3,7 +3,7 @@ import {IRestaurant} from '../../../interfaces/restaurant.interface';
 
 interface RestaurantState {
   isRestaurantLoading?: boolean;
-  restaurant?: Restaurant;
+  restaurant?: IRestaurant;
   restaurantError?: string;
 }
 const initialState: RestaurantState = {};
