@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import {View, Text} from 'react-native';
 import colors from '../common/colors';
 import {hp, wp} from '../common/dimensions';
-import {MenuSection} from '../interfaces/restaurant.interface';
-import MenuList from '../components/molecules/RestaurantMenu/MenuList';
+import {MenuItem, MenuSection} from '../interfaces/restaurant.interface';
+import MenuTabNavigator from '../components/molecules/RestaurantMenu/MenuTabNavigator';
+import _ from 'lodash';
 
 interface Props {
   sections: MenuSection[];
@@ -13,21 +14,30 @@ interface Props {
 const FIRST_MENU_ITEM_ID = 0;
 
 const RestaurantMenu = ({sections}: Props) => {
+  const getUniqueMenuItemsByName = (itemId: number) =>
+    sections?.length ? _.uniqBy(sections[itemId].menu_items, 'name') : [];
+
   const [selectedMenuItemId, setSelectedMenuItemId] =
     useState<number>(FIRST_MENU_ITEM_ID);
+  const [menuItems, setMenuItems] = useState<MenuItem[]>(
+    getUniqueMenuItemsByName(FIRST_MENU_ITEM_ID),
+  );
 
   const onChangeMenuItem = (itemId: number) => {
     setSelectedMenuItemId(itemId);
+
+    setMenuItems(getUniqueMenuItemsByName(itemId));
   };
 
   return (
     <Container>
       <Title>MENU</Title>
 
-      <MenuList
+      <MenuTabNavigator
         sections={sections}
         selectedItemId={selectedMenuItemId}
         onChangeItem={onChangeMenuItem}
+        menuItems={menuItems}
       />
     </Container>
   );

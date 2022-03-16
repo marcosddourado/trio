@@ -17,7 +17,7 @@ export interface Pricing {
   priceString: string;
 }
 
-export interface MenuItems {
+export interface MenuItem {
   name: string;
   description: string;
   price: number;
@@ -27,7 +27,7 @@ export interface MenuItems {
 export interface MenuSection {
   section_name: string;
   description: string;
-  menu_items: MenuItems[];
+  menu_items: MenuItem[];
 }
 
 export interface RestaurantMenu {

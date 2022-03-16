@@ -14,6 +14,7 @@ function* fetchRestaurant(action: PayloadAction<undefined>) {
 
     yield put(RestaurantReducer.actions.fetchRestaurantSuccess(restaurant));
   } catch (error) {
+    console.log({error});
     yield put(
       RestaurantReducer.actions.fetchRestaurantError(
         'Oops, an error occured. Try again.',
