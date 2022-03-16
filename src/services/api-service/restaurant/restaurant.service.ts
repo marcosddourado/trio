@@ -1,5 +1,8 @@
 import axios, {AxiosInstance} from 'axios';
-import {Restaurant} from '../../../interfaces/restaurant.interface';
+import {
+  Restaurant,
+  RestaurantResponse,
+} from '../../../interfaces/restaurant.interface';
 import {getAxiosInstance} from '../utils';
 
 export default class RestaurantService {
@@ -11,13 +14,13 @@ export default class RestaurantService {
     this.axiosInstance = axios.create();
   }
 
-  async _init() {
+  async _init(): Promise<void> {
     const baseUrl = 'https://api.documenu.com/v2';
     this.axiosInstance = getAxiosInstance(baseUrl);
   }
 
-  async fetchRestaurant(id: number) {
-    const response = await this.axiosInstance.get<{result: Restaurant}>(
+  async fetchRestaurant(id: number): Promise<Restaurant> {
+    const response = await this.axiosInstance.get<RestaurantResponse>(
       `/restaurant/${id}?key=${this.API_KEY}`,
     );
 

@@ -7,6 +7,8 @@ import RestaurantMenu from './RestaurantMenu';
 import {useDispatch} from 'react-redux';
 import RestaurantReducer from '../redux/reducers/restaurant-reducer/restaurant.reducer';
 import {useTypedSelector} from '../redux/selectors';
+import Loading from '../components/atoms/Loading';
+import {MenuSection} from '../interfaces/restaurant.interface';
 
 const Restaurant = () => {
   const dispatch = useDispatch();
@@ -19,13 +21,17 @@ const Restaurant = () => {
     dispatch(RestaurantReducer.actions.fetchRestaurant());
   }, [dispatch]);
 
-  return (
+  return isRestaurantLoading ? (
+    <Loading />
+  ) : (
     <Container>
       <RestaurantNameWrapper>
         <RestaurantName>{restaurant?.restaurant_name}</RestaurantName>
       </RestaurantNameWrapper>
 
-      <RestaurantMenu />
+      <RestaurantMenu
+        sections={restaurant?.menus[0].menu_sections as MenuSection[]}
+      />
     </Container>
   );
 };

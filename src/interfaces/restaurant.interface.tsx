@@ -24,7 +24,7 @@ export interface MenuItems {
   pricing: Pricing[];
 }
 
-export interface MenuSections {
+export interface MenuSection {
   section_name: string;
   description: string;
   menu_items: MenuItems[];
@@ -32,7 +32,7 @@ export interface MenuSections {
 
 export interface RestaurantMenu {
   menu_name: string;
-  menu_sections: MenuSections[];
+  menu_sections: MenuSection[];
 }
 
 export interface Restaurant {
@@ -47,4 +47,8 @@ export interface Restaurant {
   geo: GeoLocation;
   menus: RestaurantMenu[];
   last_updated: Date;
+}
+
+export interface RestaurantResponse {
+  result: Restaurant;
 }
