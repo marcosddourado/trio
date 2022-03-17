@@ -24,11 +24,12 @@ const MenuSections = ({sections, selectedItemId, onChangeItem}: Props) => {
   const renderItem = (info: ListRenderItemInfo<IMenuSection>) => {
     const isItemSelected = info.index === selectedItemId;
 
+    const onItemPress = () => {
+      onChangeItem(info.index);
+    };
+
     return (
-      <TouchableOpacity
-        onPress={() => {
-          onChangeItem(info.index);
-        }}>
+      <TouchableOpacity onPress={onItemPress}>
         <TabMenuItemText
           style={{
             color: isItemSelected ? colors.subtitle : colors.text,

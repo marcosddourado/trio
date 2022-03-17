@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {Text, View} from 'react-native';
 import colors from '../common/colors';
 import {hp, wp} from '../common/dimensions';
-import RestaurantMenu from './RestaurantMenu';
+import RestaurantMenu from '../components/molecules/Restaurant/RestaurantMenu';
 import {useDispatch} from 'react-redux';
 import RestaurantReducer from '../redux/reducers/restaurant-reducer/restaurant.reducer';
 import {useTypedSelector} from '../redux/selectors';

@@ -1,10 +1,13 @@
 import React, {useState} from 'react';
 import styled from 'styled-components';
 import {View, Text} from 'react-native';
-import colors from '../common/colors';
-import {hp, wp} from '../common/dimensions';
-import {IMenuItem, IMenuSection} from '../interfaces/restaurant.interface';
-import MenuTabNavigator from '../components/molecules/RestaurantMenu/MenuTabNavigator';
+import colors from '../../../common/colors';
+import {hp, wp} from '../../../common/dimensions';
+import {
+  IMenuItem,
+  IMenuSection,
+} from '../../../interfaces/restaurant.interface';
+import MenuTabNavigator from './MenuTabNavigator';
 import _ from 'lodash';
 
 interface Props {
