@@ -48,8 +48,7 @@ const RestaurantMenu = ({sections}: Props) => {
 
 const Container = styled(View)`
   flex-grow: 1;
-  margin-left: ${hp(30)}px;
-  margin-right: ${hp(30)}px;
+  padding-bottom: ${hp(50)}px;
 `;
 
 const Title = styled(Text)`
